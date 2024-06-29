@@ -1,63 +1,14 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Compiled Dynamic libraries
+build
+!docs/build/
+install
+__pycache__/
+*.egg-info
+.DS_Store
+dist
+venv
+.vs
 *.so
-*.dylib
-*.dll
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# http://www.gnu.org/software/automake
-
-Makefile.in
-Makefile
-m4/
-
-# http://www.gnu.org/software/autoconf
-
-autom4te.cache
-aclocal.m4
-compile
-configure
-depcomp
-install-sh
-missing
-.deps/
-*.cache/
-config.*
-stamp-h1
-
-# Libtool
-libtool
-ltmain.*
-
-# ctags
-tags*
-.tags*
-src/tags*
-src/.tags*
-
-# All test files except cpp files
-test_*
-!test_*.cpp
-*.test
-
-.libs/
-.dirstamp
-test-driver
-*.tar.gz
-*.log
-
+*.pyd
+.VSCodeCounter
+.~lock*
+.vscode/

@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <malloc.h>
+// #include <malloc.h>
 
 #include "Event.hpp"
 #include "EventDispatcher.hpp"
@@ -139,20 +139,20 @@ void TimeWarpEventDispatcher::startSimulation(const std::vector<std::vector<Logi
 }
 
 void TimeWarpEventDispatcher::onGVT(unsigned int gvt) {
-    auto malloc_info = mallinfo2();
-    int m = malloc_info.uordblks;
+    // auto malloc_info = mallinfo2();
+    // int m = malloc_info.uordblks;
 
-    uint64_t mem = m;
-    if (m < 0) {
-        mem = (uint64_t)2*1024*1024*1024 + (uint64_t)m;
-    }
+    // uint64_t mem = m;
+    // if (m < 0) {
+    //     mem = (uint64_t)2*1024*1024*1024 + (uint64_t)m;
+    // }
 
-    if (comm_manager_->getID() == 0) {
-        std::cout << "GVT: " << gvt << std::endl;
-    }
+    // if (comm_manager_->getID() == 0) {
+    //     std::cout << "GVT: " << gvt << std::endl;
+    // }
 
-    uint64_t c = tw_stats_->upCount(GVT_CYCLES, num_worker_threads_);
-    tw_stats_->updateAverage(AVERAGE_MAX_MEMORY, mem, c);
+    // uint64_t c = tw_stats_->upCount(GVT_CYCLES, num_worker_threads_);
+    // tw_stats_->updateAverage(AVERAGE_MAX_MEMORY, mem, c);
 }
 
 void TimeWarpEventDispatcher::processEvents(unsigned int id) {

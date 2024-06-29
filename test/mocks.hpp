@@ -53,6 +53,13 @@ struct test_Event : public warped::Event {
 
     unsigned int timestamp() const {return receive_time_;}
 
+    unsigned int size() const {
+        unsigned int size = receiver_name_.size() +
+                            sender_name_.size() +
+                            sizeof(receive_time_);
+        return size;
+    }
+
     std::string receiver_name_;
     unsigned int receive_time_;
 

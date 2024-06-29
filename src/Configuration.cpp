@@ -26,7 +26,7 @@
 #include "RoundRobinPartitioner.hpp"
 #include "SequentialEventDispatcher.hpp"
 #include "TimeWarpAsynchronousGVTManager.hpp"
-#include "TimeWarpSynchronousGVTManager.hpp"
+// #include "TimeWarpSynchronousGVTManager.hpp"
 #include "TimeWarpEventDispatcher.hpp"
 #include "utility/memory.hpp"
 #include "TimeWarpMPICommunicationManager.hpp"
@@ -295,8 +295,9 @@ Configuration::makeDispatcher(std::shared_ptr<TimeWarpCommunicationManager> comm
         std::unique_ptr<TimeWarpGVTManager> gvt_manager;
         auto gvt_method = (*root_)["time-warp"]["gvt-calculation"]["method"].asString();
         if (gvt_method == "synchronous") {
-            gvt_manager =
-                make_unique<TimeWarpSynchronousGVTManager>(comm_manager, gvt_period, num_worker_threads);
+            throw std::invalid_argument("not available on macOS");
+            // gvt_manager =
+            //     make_unique<TimeWarpSynchronousGVTManager>(comm_manager, gvt_period, num_worker_threads);
         } else if (gvt_method == "asynchronous") {
             gvt_manager =
                 make_unique<TimeWarpAsynchronousGVTManager>(comm_manager, gvt_period, num_worker_threads);
